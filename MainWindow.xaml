@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button Content="Connect" HorizontalAlignment="Left" Margin="355,267,0,0" VerticalAlignment="Top" Height="41" Width="85" Click="Button_Click"/>
+        <DataGrid x:Name="StudentGradesDataGrid" AutoGenerateColumns="True" Margin="148,69,157,106" />
+        <Button Content="Connect" HorizontalAlignment="Center" Margin="0,357,0,0" VerticalAlignment="Top" Height="41" Width="84" Click="Button_Click"/>
     </Grid>
 </Window>
