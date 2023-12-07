@@ -12,7 +12,6 @@ namespace Module_1
         {
             InitializeComponent();
         }
-        // Connection to the database
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             string connectionString = "Data Source=LAPTOP-2\\SQLLAPTOP;Initial Catalog=fuck;Persist Security Info=True;User ID=dimavoronkov2222;Password=G_8289/00/5654_G;Encrypt=True;Trust Server Certificate=True";
@@ -37,6 +36,16 @@ namespace Module_1
             DataTable dt = new DataTable("Student_Grades2");
             dataadapter.Fill(dt);
             StudentGradesDataGrid.ItemsSource = dt.DefaultView;
+            var averageGrades = dt.AsEnumerable().Select(row => row.Field<double>("Average_Grade_Per_Year"));
+            var minGrades = dt.AsEnumerable().Select(row => row.Field<string>("Subject_With_Minimum_Average_Grade"));
+            var maxGrades = dt.AsEnumerable().Select(row => row.Field<string>("Subject_With_Maximum_Average_Grade"));
+            var groups = dt.AsEnumerable().Select(row => row.Field<string>("Group_Name"));
+            MinAvgScore.Text = $"Minimum Average Grade: {averageGrades.Min()}";
+            MaxAvgScore.Text = $"Maximum Average Grade: {averageGrades.Max()}";
+            MinMathScoreCount.Text = $"Subject with minimum average grade: {minGrades.Min()}";
+            MaxMathScoreCount.Text = $"Subject with maximum average grade: {maxGrades.Max()}";
+            StudentGroupCount.Text = $"Number of students in each group: {string.Join(", ", groups.GroupBy(g => g).Select(g => $"{g.Key}: {g.Count()}"))}";
+            GroupAvgRating.Text = $"Group's average rating: {averageGrades.Average()}";
         }
     }
 }

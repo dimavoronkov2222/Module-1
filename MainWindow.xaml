@@ -5,9 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Module_1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <DataGrid x:Name="StudentGradesDataGrid" AutoGenerateColumns="True" Margin="148,69,157,106" />
-        <Button Content="Connect" HorizontalAlignment="Center" Margin="0,357,0,0" VerticalAlignment="Top" Height="41" Width="84" Click="Button_Click"/>
+        Title="MainWindow" Height="768" Width="1366">
+    <Grid Background="White">
+        <DataGrid x:Name="StudentGradesDataGrid" AutoGenerateColumns="True" Background="White" Margin="100,0,100,500" />
+        <StackPanel Orientation="Vertical" Margin="0,500,800,0">
+            <TextBlock x:Name="MinAvgScore" Background="White" Foreground="Black" FontSize="16" />
+            <TextBlock x:Name="MaxAvgScore" Background="White" Foreground="Black" FontSize="16" />
+        </StackPanel>
+        <StackPanel Orientation="Vertical" Margin="10,250,600,250">
+            <TextBlock x:Name="MinMathScoreCount" Background="White" Foreground="Black" FontSize="16" />
+            <TextBlock x:Name="MaxMathScoreCount" Background="White" Foreground="Black" FontSize="16" />
+        </StackPanel>
+        <StackPanel Orientation="Vertical" Margin="700,50,100,500">
+            <TextBlock x:Name="StudentGroupCount" Background="White" Foreground="Black" FontSize="16" />
+            <TextBlock x:Name="GroupAvgRating" Background="White" Foreground="Black" FontSize="16" />
+        </StackPanel>
+        <Button Content="Connect" HorizontalAlignment="Left" Margin="16,50,0,0" VerticalAlignment="Top" Height="41" Width="84" Click="Button_Click" Background="LightGray" Foreground="Black" RenderTransformOrigin="0.44,0.611"/>
     </Grid>
 </Window>
