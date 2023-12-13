@@ -1,6 +1,8 @@
 ﻿using System.Data;
 using System.Windows;
 using Microsoft.Data.SqlClient;
+using System.Linq;
+
 namespace Module_1
 {
     /// <summary>
@@ -19,12 +21,12 @@ namespace Module_1
             try
             {
                 connection.Open();
-                MessageBox.Show("Connection successful!", "Information",MessageBoxButton.OK,MessageBoxImage.Information);
+                MessageBox.Show("Connection successful!", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
                 LoadData();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message, "Error",MessageBoxButton.OK,MessageBoxImage.Error);
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
         private void LoadData()
@@ -40,10 +42,11 @@ namespace Module_1
             var minGrades = dt.AsEnumerable().Select(row => row.Field<string>("Subject_With_Minimum_Average_Grade"));
             var maxGrades = dt.AsEnumerable().Select(row => row.Field<string>("Subject_With_Maximum_Average_Grade"));
             var groups = dt.AsEnumerable().Select(row => row.Field<string>("Group_Name"));
+            var mathGrades = dt.AsEnumerable().Select(row => row.Field<double>("Math_Grade"));
             MinAvgScore.Text = $"Minimum Average Grade: {averageGrades.Min()}";
             MaxAvgScore.Text = $"Maximum Average Grade: {averageGrades.Max()}";
-            MinMathScoreCount.Text = $"Subject with minimum average grade: {minGrades.Min()}";
-            MaxMathScoreCount.Text = $"Subject with maximum average grade: {maxGrades.Max()}";
+            MinMathScoreCount.Text = $"Number of students with minimum math grade: {mathGrades.Count(g => g == mathGrades.Min())}";
+            MaxMathScoreCount.Text = $"Number of students with maximum math grade: {mathGrades.Count(g => g == mathGrades.Max())}";
             StudentGroupCount.Text = $"Number of students in each group: {string.Join(", ", groups.GroupBy(g => g).Select(g => $"{g.Key}: {g.Count()}"))}";
             GroupAvgRating.Text = $"Group's average rating: {averageGrades.Average()}";
         }

@@ -1,25 +1,15 @@
 ﻿<Window x:Class="Module_1.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Module_1"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="768" Width="1366">
-    <Grid Background="White">
-        <DataGrid x:Name="StudentGradesDataGrid" AutoGenerateColumns="True" Background="White" Margin="100,0,100,500" />
-        <StackPanel Orientation="Vertical" Margin="0,500,800,0">
-            <TextBlock x:Name="MinAvgScore" Background="White" Foreground="Black" FontSize="16" />
-            <TextBlock x:Name="MaxAvgScore" Background="White" Foreground="Black" FontSize="16" />
-        </StackPanel>
-        <StackPanel Orientation="Vertical" Margin="10,250,600,250">
-            <TextBlock x:Name="MinMathScoreCount" Background="White" Foreground="Black" FontSize="16" />
-            <TextBlock x:Name="MaxMathScoreCount" Background="White" Foreground="Black" FontSize="16" />
-        </StackPanel>
-        <StackPanel Orientation="Vertical" Margin="700,50,100,500">
-            <TextBlock x:Name="StudentGroupCount" Background="White" Foreground="Black" FontSize="16" />
-            <TextBlock x:Name="GroupAvgRating" Background="White" Foreground="Black" FontSize="16" />
-        </StackPanel>
-        <Button Content="Connect" HorizontalAlignment="Left" Margin="16,50,0,0" VerticalAlignment="Top" Height="41" Width="84" Click="Button_Click" Background="LightGray" Foreground="Black" RenderTransformOrigin="0.44,0.611"/>
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Button Content="Load Data" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <DataGrid x:Name="StudentGradesDataGrid" HorizontalAlignment="Left" Height="200" Margin="10,50,0,0" VerticalAlignment="Top" Width="760"/>
+        <TextBlock x:Name="MinAvgScore" HorizontalAlignment="Left" Margin="10,260,0,0" TextWrapping="Wrap" Text="Minimum Average Grade:" VerticalAlignment="Top"/>
+        <TextBlock x:Name="MaxAvgScore" HorizontalAlignment="Left" Margin="10,280,0,0" TextWrapping="Wrap" Text="Maximum Average Grade:" VerticalAlignment="Top"/>
+        <TextBlock x:Name="MinMathScoreCount" HorizontalAlignment="Left" Margin="10,300,0,0" TextWrapping="Wrap" Text="Number of students with minimum math grade:" VerticalAlignment="Top"/>
+        <TextBlock x:Name="MaxMathScoreCount" HorizontalAlignment="Left" Margin="10,320,0,0" TextWrapping="Wrap" Text="Number of students with maximum math grade:" VerticalAlignment="Top"/>
+        <TextBlock x:Name="StudentGroupCount" HorizontalAlignment="Left" Margin="10,340,0,0" TextWrapping="Wrap" Text="Number of students in each group:" VerticalAlignment="Top"/>
+        <TextBlock x:Name="GroupAvgRating" HorizontalAlignment="Left" Margin="10,360,0,0" TextWrapping="Wrap" Text="Group's average rating:" VerticalAlignment="Top"/>
     </Grid>
 </Window>
